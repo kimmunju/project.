@@ -46,3 +46,22 @@ int main(void)
 	*/
 	return 0;
 }
+  1 #include <stdio.h>
+  2 int main (void)
+  3 {
+  4     int grade[10];
+  5     int i, j, sum;
+  6     float average;
+  7     for(i=0 ;i<10;i++)
+  8     {
+  9         printf("%d 번째 성적입력 : ", i);
+ 10     scanf("%d", &grade[i]);
+ 11     }
+ 12     for (i=sum=0; i<10;i++)
+ 13         sum+=grade[i];
+ 14             average=sum/10.0;
+ 15     printf("성적평균 : %f\n", average);
+ 16     return 0;
+ 17 }
+ 18
+~
