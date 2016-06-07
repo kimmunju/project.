@@ -188,3 +188,83 @@
      }
      return 0;
   }
+  #include <stdio.h>
+int main(void)
+{
+	int i=0, j=0, aaa=0, k=0, check=0, a=0;
+	char input[1000], num[100][61], c[61];
+	char v[10][100];
+
+ 	for(i = 0; input[i-1] != '\n'; i++){ 
+ 		input[i] = getchar(); 
+ 	} 
+ 	input[--i] = '\0'; 
+
+	for(i=0; input[i]!='\0'; i++)
+	{
+				{
+					 v[j][k]=v[j][i];
+				}
+				else   k++; */
+		if(input[i]=='=')
+		{
+			aaa=1;
+			break;
+		}	
+	}
+
+	if(aaa==1)
+	{
+		for(i=0 ; input[i]!='\0';++i)
+		{	
+			if (input[i]!='=' && input[i]!=' ') 
+			{
+				v[j][k]=input[i];
+				++k;
+			}
+		}
+				{
+						v[j][k]=v[j][i];
+				}
+		else   i++; 
+		} */
+		v[j][i]='\0';
+		j++;
+	
+	}
+
+	else
+	{
+    	for(i=0; input[i] != '\0'; i++){ 
+ 		if((input[i] >= '0')&&(input[i] <= '9')||(input[i]=='.')){ 
+ 			num[j][k++] = input[i]; 
+ 			check = 1; 
+ 		} 
+ 		else if(input[i]==' ') 
+ 		{ 
+ 			if(check) 
+
+			{ 
+ 				num[j][k] = '\0'; 
+ 				j++; 
+ 				k = 0; 
+ 			} 
+ 		} 
+ 		else 
+ 		{ 
+ 			c[a++]=input[i]; 
+ 			check=0; 
+ 		} 
+ 	} 
+	}
+ 	num[j][k] = '\0'; 
+ 	c[a] = '\0'; 
+
+ 	printf("input[]\n"); 
+ 	printf("%s\n", input); 
+
+ 	printf("v[][]\n"); 
+	printf("%s\n", v[j-1]);
+	return 0;
+}
+
