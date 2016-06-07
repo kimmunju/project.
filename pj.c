@@ -188,3 +188,104 @@
      }
      return 0;
   }
+#include <stdio.h>
+int main(void)
+{
+		int i=0, j=0, aaa=0, k=0, check=0, a=0,l=0,m=0, tmp = 0;
+		char input[1000], num[100][61], c[61];
+		char v[10][62];
+
+		while (1)
+		{
+				for(i = 0; input[i-1] != '\n'; i++){ 
+						input[i] = getchar(); 
+				} 
+				input[--i] = '\0'; 
+				for(i=0;input[i]!='\0';++i)
+				{
+						aaa=0;
+						if(input[i]=='=')
+						{
+								aaa=1;
+								break;
+						}
+				}
+
+				if(aaa==1) 
+				{
+						k=0;
+						for(i=0;input[i]!='\0';++i)
+						{
+								if(input[i]!='=' && input[i]!=' ')
+								{
+										v[j%10][k]= input[i];
+										++k;
+								}	
+						}
+						++j;
+				}
+
+				/* 
+				   printf("input[]\n");
+				   printf("%s\n",input);    
+
+				   printf("v[][]\n");
+				   for (i=0;i<=9;i++)
+				   printf("%s\n",v[i]);
+
+				   for(i=0; i<=9; ++i)
+				   if(input[0]==v[i][0])
+				   break;
+				 */
+
+				if (strcmp(input,"VAR") == 0)
+				{  
+						for (tmp=0;tmp<=9;tmp++) 
+								if(v[tmp][0]!='\0')
+								{
+										printf("%c = ",v[tmp][0]);
+										for(k=1;v[tmp][k]!='\0';k++)			
+												printf("%c",v[tmp][k]);
+										printf("\n");
+										if (v[tmp+1][0]=='\0')
+												break;
+								} 
+								else
+								{
+										printf("?뺤쓽??蹂???놁쓬\n");
+										break;
+								}		
+				}	
+				if ((input[0]>='a'&&input[0]<='z')||(input[0]>='A'&&input[0]<='Z'))
+						if(input[1]=='\0')
+								for(i=0; i<=9; ++i)
+										if(input[0]==v[i][0])
+												break;
+				if(input[0]==v[i][0])
+						if (v[i][1] != '\0' && aaa==0) 
+						{
+								printf("= ");
+								for(tmp=1; v[i][tmp]!='\0'; ++tmp)
+										printf("%c",v[i][tmp]);
+								printf("\n");
+						}
+
+				if (input[0] != v[i][0] && strcmp(input,"VAR") != 0 && aaa==0)
+						printf("= undefined.\n");	  	
+
+
+				//				for(i=0;input[i]!='\0';i++)
+				//				if ((input[i+4] >= '0' && input[i+4] <= '9'))
+				//				{
+				if (aaa==1)	
+				{
+						printf("= ");		
+						for (k = 0; v[(j-1)%10][k]!='\0';k++)
+								printf("%c", v[(j-1)%10][k+1]);
+						printf("\n");
+				}
+				//				}
+				//              else
+				//					;
+		} 
+}
