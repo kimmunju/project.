@@ -752,3 +752,30 @@
      return 0;
   }
 ///////////////////////////뺄셈
+////////////////////////////////셍세입세이브세이브엥세이브에에세이브에에에세이브에에에ㅔ
+
+        ofp = fopen("save.txt", "r");
+
+		if(strcmp(input, "save")==0)
+
+			for(int i = 0;i<n; ++i)
+				fprintf(ofp, "%c", v[i][0]);
+				for(int j=1; j<strlen(v[i]);++j)
+					fprintf(ofp, "%c", v[i][j]);
+				for(int j=1; j<strlen(v[i]);++j)
+					fprintf(ofp, "%c" v[i][j]);
+				fprintf(ofp, " ");
+
+				fclose(ofp);
+
+	
+        /*fp = fopen("save.txt", "r");
+		
+        while(fscanf(fp, "%s", &data) != EOF){
+                printf("%s\n", data);
+
+        }
+
+        fclose(fp\n);*/
+		}
+				}	
