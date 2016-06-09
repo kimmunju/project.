@@ -752,3 +752,173 @@
      return 0;
   }
 ///////////////////////////뺄셈
+///////////save////////////
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+		int i=0, j=0, aaa=0, k=0, check=0, a=0,l=0,m=0, tmp = 0, h=0, d=0;
+		char input[1000], num[100][61], c[61];
+		char v[10][62];
+		FILE *ofp;
+
+		while (1)
+		{
+				for(i = 0; input[i-1] != '\n'; i++){ 
+						input[i] = getchar(); 
+				} 
+				input[--i] = '\0'; 
+				for(i=0;input[i]!='\0';++i)
+				{
+						aaa=0;
+						if(input[i]=='=') {
+				              if(((input[0]>='a'&&input[0]<='z')||(input[0]>='A'&&input[0]<='Z'))&&input[1]==' '&&input[2]=='='&&input[3]==' ') 
+						{
+								aaa=1;
+								break;
+						}
+						}
+				}
+
+				if(((input[0]>='A')&&(input[0]<='Z'))||((input[0]>='a')&&(input[0]<='z')))
+						for(d=0; d<10; d++)
+				//	{
+								if(input[0]==v[d][0])
+										break;
+								else if(input[0]-v[d][0]==32)
+										break;
+								else if(v[d][0]-input[0]==32)
+										break;
+				//		}
+				if(aaa==1) 
+				{
+					if(d==10)
+					{
+						k=0;
+			//			for(i=4;input[i]!='\0';i++)
+			//			{
+			//			   if(input[i]!='0'||input[i]!='1'||input[i]!='2'||input[i]!='3'||input[i]!='4'||input[i]!='5'||input[i]!='6'||input[i]!='7'||input[i]!='8'||input[i]!='9')
+						/*	    break*/ ;
+			//			   else 
+			//		    	{
+					for(i=0;input[i]!='\0';++i)
+					{
+						if(input[i]!='=' && input[i]!=' ')
+						{
+							v[j%10][k]= input[i];
+					          ++k;
+					     }
+					   }
+					++j;
+					}
+					else
+						{
+								k=0;
+								for(i=0;input[i]!='\0';++i)
+								{
+										if(input[i]!='=' && input[i]!=' ')
+										{
+												v[d][k]= input[i];
+												++k;
+										}	
+								}
+								v[d][k]='\0';
+						}
+				}
+                
+
+				printf("input[]\n");
+				printf("%s\n",input);    
+
+				printf("v[][]\n");
+				for (i=0;i<=9;i++)
+						printf("%s\n",v[i]);
+
+				for(i=0; i<=9; ++i)
+						if(input[0]==v[i][0])
+								break;
+
+				if (strcmp(input,"VAR") == 0)
+				{  
+						for (tmp=0;tmp<=9;tmp++) 
+								if(v[tmp][0]!='\0')
+								{
+										printf("%c = ",v[tmp][0]);
+										for(k=1;v[tmp][k]!='\0';k++)			
+												printf("%c",v[tmp][k]);
+										printf("\n");
+										if (v[tmp+1][0]=='\0')
+												break;
+								} 
+								else
+								{
+										printf("?뺤쓽??蹂???놁쓬\n");
+										break;
+								}		
+				}	
+				if ((input[0]>='a'&&input[0]<='z')||(input[0]>='A'&&input[0]<='Z'))
+						{		if(input[1]=='\0')
+								{			for(i=0; i<=9; ++i)
+										if(input[0]==v[i][0])
+												break;
+										if (input[0] != v[i][0] && strcmp(input,"VAR") != 0)
+										{
+												printf("= undefined\n");
+										}
+								}
+						}
+			    if(input[0]==v[i][0])
+						if (v[i][1] != '\0' && aaa==0) 
+								{
+										printf("= ");
+										for(tmp=1; v[i][tmp]!='\0'; ++tmp)
+										if(input[1]=='\0')
+												printf("%c",v[i][tmp]);
+										printf("\n");
+								} 
+
+
+				if(((input[0]>='a'&&input[0]<='z')||(input[0]>='A'&&input[0]<='Z'))&&input[1]==' '&&input[2]=='='&&input[3]==' ') 
+				{
+			  	if (aaa=1)
+				   printf("= ");		
+					for (k = 0; v[(j-1)%10][k]!='\0';k++)
+						printf("%c", v[(j-1)%10][k+1]);
+					printf("\n");
+						
+				}
+//			    //else if(input[i]!='0'||input[i]!='1'||input[i]!='2'||input[i]!='3'||input[i]!='4'||input[i]!='5'||input[i]!='6'||input[i]!='7'||input[i]!='8'||input[i]!='9')
+	/*			if((input[0]>='a'&&input[0]<='z')||(input[0]>='A'&&input[0]<='Z'))
+					if(input[1]=='\0')
+							;
+				    else  if (aaa==0 && strcmp(input,"VAR")!=0) 
+							printf("= error\n");*/
+					     
+
+       		ofp = fopen("save.txt", "w");
+
+		if(strcmp(input, "save")==0)
+
+			for(i = 0;i<10; ++i)
+			{
+				fprintf(ofp, "%c ", v[i][0]);
+
+				for( j=1; j<strlen(v[i]);++j)
+					fprintf(ofp, "%c", v[i][j]);
+
+				fprintf(ofp, "\n");
+			}
+			fclose(ofp);
+
+	
+        /*fp = fopen("save.txt", "r");
+		
+        while(fscanf(fp, "%s", &data) != EOF){
+                printf("%s\n", data);
+
+        }
+
+        fclose(fp\n);*/
+		}
+				}	
+/////////////////////////save/////////////
